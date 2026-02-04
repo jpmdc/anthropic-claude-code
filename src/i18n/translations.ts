@@ -4,6 +4,13 @@ export const translations = {
       products: 'Products',
       about: 'About',
       contact: 'Contact',
+      quiz: 'Quiz',
+      games: 'Games',
+      songs: 'Songs',
+      rendering: 'Rendering',
+      pilot: 'Pilot',
+      display: 'Display',
+      more: 'More',
     },
     hero: {
       badge: 'The Future of Inclusive Education',
@@ -33,7 +40,7 @@ export const translations = {
       },
       rendering: {
         title: 'Rendering',
-        description: '3D visualizations bringing concepts to life.',
+        description: 'Adaptive unique content rendering tailored to each learner.',
         status: 'Beta',
       },
       pilot: {
@@ -156,6 +163,13 @@ Questions about these terms: contact@NeuroStell.com
       products: 'Produits',
       about: 'À propos',
       contact: 'Contact',
+      quiz: 'Quiz',
+      games: 'Jeux',
+      songs: 'Chansons',
+      rendering: 'Rendu',
+      pilot: 'Pilote',
+      display: 'Affichage',
+      more: 'Plus',
     },
     hero: {
       badge: 'Le Futur de l\'Éducation Inclusive',
@@ -184,8 +198,8 @@ Questions about these terms: contact@NeuroStell.com
         status: 'Bêta',
       },
       rendering: {
-        title: 'Rendu 3D',
-        description: 'Visualisations 3D donnant vie aux concepts.',
+        title: 'Rendu',
+        description: 'Rendu de contenu unique et adaptatif pour chaque apprenant.',
         status: 'Bêta',
       },
       pilot: {

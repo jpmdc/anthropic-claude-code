@@ -10,6 +10,11 @@ import Footer from './components/Footer';
 import ComfortPanel from './components/ComfortPanel';
 import Privacy from './components/Privacy';
 import Terms from './components/Terms';
+import QuizPage from './components/pages/QuizPage';
+import GamesPage from './components/pages/GamesPage';
+import SongsPage from './components/pages/SongsPage';
+import RenderingPage from './components/pages/RenderingPage';
+import PilotPage from './components/pages/PilotPage';
 
 function HomePage() {
   return (
@@ -28,22 +33,22 @@ function HomePage() {
   );
 }
 
-function PrivacyPage() {
+function ProductPageLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <Privacy />
+      <main>{children}</main>
       <Footer />
       <ComfortPanel />
     </>
   );
 }
 
-function TermsPage() {
+function LegalPageLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <Terms />
+      {children}
       <Footer />
       <ComfortPanel />
     </>
@@ -56,8 +61,13 @@ function App() {
       <AppProvider>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-          <Route path="/terms" element={<TermsPage />} />
+          <Route path="/privacy" element={<LegalPageLayout><Privacy /></LegalPageLayout>} />
+          <Route path="/terms" element={<LegalPageLayout><Terms /></LegalPageLayout>} />
+          <Route path="/quiz" element={<ProductPageLayout><QuizPage /></ProductPageLayout>} />
+          <Route path="/games" element={<ProductPageLayout><GamesPage /></ProductPageLayout>} />
+          <Route path="/songs" element={<ProductPageLayout><SongsPage /></ProductPageLayout>} />
+          <Route path="/rendering" element={<ProductPageLayout><RenderingPage /></ProductPageLayout>} />
+          <Route path="/pilot" element={<ProductPageLayout><PilotPage /></ProductPageLayout>} />
         </Routes>
       </AppProvider>
     </BrowserRouter>
