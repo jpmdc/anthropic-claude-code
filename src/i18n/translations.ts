@@ -1,8 +1,8 @@
 export const translations = {
   en: {
     nav: {
+      products: 'Products',
       about: 'About',
-      features: 'Solution',
       contact: 'Contact',
     },
     hero: {
@@ -10,24 +10,53 @@ export const translations = {
       title: 'Learning reimagined for every mind',
       subtitle: 'NeuroStell harnesses advanced AI to create adaptive learning experiences that understand and respond to each student\'s unique cognitive profile.',
       cta: 'Request a Demo',
-      secondary: 'Learn More',
+      secondary: 'Explore Products',
       backed: 'Supported by',
     },
+    products: {
+      title: 'Our Products',
+      subtitle: 'A comprehensive suite of adaptive learning tools designed for inclusive education.',
+      quiz: {
+        title: 'Quiz',
+        description: 'Adaptive assessments that evolve with each learner\'s progress.',
+        status: 'Live',
+      },
+      games: {
+        title: 'Games',
+        description: 'Gamified learning experiences that make education engaging.',
+        status: 'Live',
+      },
+      songs: {
+        title: 'Songs',
+        description: 'Musical mnemonics for auditory learners.',
+        status: 'Beta',
+      },
+      rendering: {
+        title: 'Rendering',
+        description: '3D visualizations bringing concepts to life.',
+        status: 'Beta',
+      },
+      pilot: {
+        title: 'Pilot',
+        description: 'Early access to experimental AI learning tools.',
+        status: 'Coming Soon',
+      },
+    },
     features: {
-      title: 'Intelligent Adaptation',
-      subtitle: 'Our neural learning engine continuously adapts to optimize educational outcomes for students with dyslexia, ADHD, and diverse learning needs.',
+      title: 'How It Works',
+      subtitle: 'Our neural learning engine continuously adapts to optimize educational outcomes.',
       items: [
         {
           title: 'Cognitive Profiling',
-          description: 'Deep learning models map each learner\'s cognitive patterns to create personalized educational pathways.',
+          description: 'Deep learning models map each learner\'s cognitive patterns to create personalized pathways.',
         },
         {
           title: 'Adaptive Content',
-          description: 'Real-time content transformation adjusts typography, pacing, and presentation based on engagement signals.',
+          description: 'Real-time content transformation adjusts typography, pacing, and presentation.',
         },
         {
           title: 'Universal Access',
-          description: 'Built from the ground up for accessibility, ensuring every student can learn in their optimal environment.',
+          description: 'Built from the ground up for accessibility, ensuring every student can learn.',
         },
       ],
     },
@@ -62,15 +91,16 @@ export const translations = {
       },
     },
     comfort: {
-      title: 'Display Settings',
+      title: 'Reading Comfort',
+      subtitle: 'Adjust the display to match your preferences',
       theme: 'Theme',
       themes: { light: 'Light', dark: 'Dark', system: 'System' },
-      typography: 'Font',
-      fonts: { system: 'Default', serif: 'Serif', mono: 'Mono', dyslexic: 'Dyslexic' },
-      fontSize: 'Size',
-      lineHeight: 'Line Height',
+      typography: 'Font Style',
+      fonts: { system: 'Default', serif: 'Serif', mono: 'Mono', dyslexic: 'OpenDyslexic' },
+      fontSize: 'Text Size',
+      lineHeight: 'Line Spacing',
       letterSpacing: 'Letter Spacing',
-      reset: 'Reset',
+      reset: 'Reset to Default',
     },
     privacy: {
       title: 'Privacy Policy',
@@ -123,8 +153,8 @@ Questions about these terms: contact@NeuroStell.com
   },
   fr: {
     nav: {
+      products: 'Produits',
       about: 'À propos',
-      features: 'Solution',
       contact: 'Contact',
     },
     hero: {
@@ -132,24 +162,53 @@ Questions about these terms: contact@NeuroStell.com
       title: 'L\'apprentissage réinventé pour chaque esprit',
       subtitle: 'NeuroStell utilise l\'IA avancée pour créer des expériences d\'apprentissage adaptatives qui comprennent le profil cognitif unique de chaque étudiant.',
       cta: 'Demander une Démo',
-      secondary: 'En Savoir Plus',
+      secondary: 'Découvrir les Produits',
       backed: 'Soutenus par',
     },
+    products: {
+      title: 'Nos Produits',
+      subtitle: 'Une suite complète d\'outils d\'apprentissage adaptatif pour l\'éducation inclusive.',
+      quiz: {
+        title: 'Quiz',
+        description: 'Évaluations adaptatives qui évoluent avec chaque apprenant.',
+        status: 'Disponible',
+      },
+      games: {
+        title: 'Jeux',
+        description: 'Expériences ludiques qui rendent l\'éducation engageante.',
+        status: 'Disponible',
+      },
+      songs: {
+        title: 'Chansons',
+        description: 'Mnémoniques musicaux pour les apprenants auditifs.',
+        status: 'Bêta',
+      },
+      rendering: {
+        title: 'Rendu 3D',
+        description: 'Visualisations 3D donnant vie aux concepts.',
+        status: 'Bêta',
+      },
+      pilot: {
+        title: 'Pilote',
+        description: 'Accès anticipé aux outils IA expérimentaux.',
+        status: 'Bientôt',
+      },
+    },
     features: {
-      title: 'Adaptation Intelligente',
-      subtitle: 'Notre moteur d\'apprentissage neural s\'adapte continuellement pour optimiser les résultats éducatifs des étudiants dyslexiques, TDAH et aux besoins divers.',
+      title: 'Comment Ça Marche',
+      subtitle: 'Notre moteur d\'apprentissage neural s\'adapte continuellement pour optimiser les résultats.',
       items: [
         {
           title: 'Profilage Cognitif',
-          description: 'Des modèles d\'apprentissage profond cartographient les schémas cognitifs pour créer des parcours éducatifs personnalisés.',
+          description: 'Des modèles d\'apprentissage profond cartographient les schémas cognitifs de chaque apprenant.',
         },
         {
           title: 'Contenu Adaptatif',
-          description: 'Transformation en temps réel du contenu ajustant typographie, rythme et présentation selon les signaux d\'engagement.',
+          description: 'Transformation en temps réel ajustant typographie, rythme et présentation.',
         },
         {
           title: 'Accès Universel',
-          description: 'Conçu dès le départ pour l\'accessibilité, garantissant que chaque étudiant puisse apprendre dans son environnement optimal.',
+          description: 'Conçu dès le départ pour l\'accessibilité de chaque étudiant.',
         },
       ],
     },
@@ -164,7 +223,7 @@ Questions about these terms: contact@NeuroStell.com
     },
     contact: {
       title: 'Construisons Ensemble',
-      subtitle: 'Associez-vous à nous pour transformer l\'éducation. Nous travaillons avec des écoles, institutions et organisations visionnaires.',
+      subtitle: 'Associez-vous à nous pour transformer l\'éducation.',
       form: {
         name: 'Votre nom',
         email: 'Adresse email',
@@ -184,12 +243,13 @@ Questions about these terms: contact@NeuroStell.com
       },
     },
     comfort: {
-      title: 'Affichage',
+      title: 'Confort de Lecture',
+      subtitle: 'Ajustez l\'affichage selon vos préférences',
       theme: 'Thème',
       themes: { light: 'Clair', dark: 'Sombre', system: 'Système' },
-      typography: 'Police',
-      fonts: { system: 'Défaut', serif: 'Sérif', mono: 'Mono', dyslexic: 'Dyslexique' },
-      fontSize: 'Taille',
+      typography: 'Style de Police',
+      fonts: { system: 'Défaut', serif: 'Sérif', mono: 'Mono', dyslexic: 'OpenDyslexic' },
+      fontSize: 'Taille du Texte',
       lineHeight: 'Interligne',
       letterSpacing: 'Espacement',
       reset: 'Réinitialiser',
@@ -199,10 +259,10 @@ Questions about these terms: contact@NeuroStell.com
       lastUpdated: 'Dernière mise à jour : Janvier 2024',
       content: `
 ## Introduction
-NeuroStell ("nous", "notre") s'engage à protéger votre vie privée. Cette politique explique comment nous collectons et utilisons vos informations.
+NeuroStell ("nous", "notre") s'engage à protéger votre vie privée.
 
 ## Informations Collectées
-Nous collectons les informations que vous fournissez, notamment nom, email et organisation lorsque vous nous contactez.
+Nous collectons les informations que vous fournissez, notamment nom, email et organisation.
 
 ## Utilisation des Données
 - Pour répondre à vos demandes
@@ -210,7 +270,7 @@ Nous collectons les informations que vous fournissez, notamment nom, email et or
 - Pour envoyer des mises à jour pertinentes
 
 ## Sécurité
-Nous appliquons des mesures de sécurité standard pour protéger vos données personnelles.
+Nous appliquons des mesures de sécurité standard pour protéger vos données.
 
 ## Vos Droits
 Vous avez le droit d'accéder, corriger ou supprimer vos données. Contactez contact@NeuroStell.com.

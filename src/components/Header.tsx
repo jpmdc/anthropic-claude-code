@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, Settings } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export default function Header() {
@@ -11,8 +11,8 @@ export default function Header() {
   const isHome = location.pathname === '/';
 
   const navItems = [
+    { label: t.nav.products, href: isHome ? '#products' : '/#products' },
     { label: t.nav.about, href: isHome ? '#about' : '/#about' },
-    { label: t.nav.features, href: isHome ? '#features' : '/#features' },
     { label: t.nav.contact, href: isHome ? '#contact' : '/#contact' },
   ];
 
@@ -60,6 +60,32 @@ export default function Header() {
 
         {/* Actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          {/* Accessibility Toggle */}
+          <button
+            onClick={() => setIsPanelOpen(true)}
+            style={{
+              padding: '0.5rem 0.875rem',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: 'var(--accent)',
+              background: 'var(--accent-glow)',
+              border: '1px solid var(--accent)',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'var(--accent)';
+              e.currentTarget.style.color = 'white';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'var(--accent-glow)';
+              e.currentTarget.style.color = 'var(--accent)';
+            }}
+          >
+            Aa
+          </button>
+
           <button
             onClick={() => setLanguage(language === 'en' ? 'fr' : 'en')}
             style={{
@@ -77,25 +103,6 @@ export default function Header() {
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
           >
             {language === 'en' ? 'FR' : 'EN'}
-          </button>
-
-          <button
-            onClick={() => setIsPanelOpen(true)}
-            aria-label="Display settings"
-            style={{
-              padding: '0.5rem',
-              color: 'var(--text-secondary)',
-              background: 'transparent',
-              border: '1px solid var(--border)',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              display: 'flex',
-              transition: 'all 0.2s',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--accent)')}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
-          >
-            <Settings size={16} />
           </button>
 
           {/* Mobile menu */}

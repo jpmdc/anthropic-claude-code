@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Products from './components/Products';
 import Features from './components/Features';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -16,6 +17,7 @@ function HomePage() {
       <Header />
       <main>
         <Hero />
+        <Products />
         <Features />
         <About />
         <Contact />
