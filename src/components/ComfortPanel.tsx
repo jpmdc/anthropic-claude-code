@@ -22,7 +22,6 @@ export default function ComfortPanel() {
     <AnimatePresence>
       {isPanelOpen && (
         <>
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -31,13 +30,11 @@ export default function ComfortPanel() {
             style={{
               position: 'fixed',
               inset: 0,
-              background: 'rgba(0, 0, 0, 0.5)',
-              backdropFilter: 'blur(4px)',
-              zIndex: 'var(--z-modal)',
+              background: 'rgba(0, 0, 0, 0.4)',
+              zIndex: 200,
             }}
           />
 
-          {/* Panel */}
           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
@@ -49,13 +46,12 @@ export default function ComfortPanel() {
               right: 0,
               bottom: 0,
               width: '100%',
-              maxWidth: '380px',
-              background: 'var(--bg-primary)',
-              borderLeft: '1px solid var(--border-primary)',
-              zIndex: 'var(--z-modal)',
+              maxWidth: '320px',
+              background: 'var(--bg)',
+              borderLeft: '1px solid var(--border)',
+              zIndex: 200,
               display: 'flex',
               flexDirection: 'column',
-              overflow: 'hidden',
             }}
           >
             {/* Header */}
@@ -64,165 +60,94 @@ export default function ComfortPanel() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                padding: 'var(--space-lg)',
-                borderBottom: '1px solid var(--border-primary)',
+                padding: '1rem',
+                borderBottom: '1px solid var(--border)',
               }}
             >
-              <h3 style={{ margin: 0, fontSize: '1.125rem' }}>{t.comfort.title}</h3>
-              <motion.button
+              <span style={{ fontWeight: 600 }}>{t.comfort.title}</span>
+              <button
                 onClick={() => setIsPanelOpen(false)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
                 style={{
-                  padding: 'var(--space-sm)',
-                  background: 'var(--bg-tertiary)',
-                  border: '1px solid var(--border-primary)',
-                  borderRadius: 'var(--radius-md)',
-                  color: 'var(--text-primary)',
+                  padding: '0.5rem',
+                  background: 'var(--bg-subtle)',
+                  border: '1px solid var(--border)',
+                  borderRadius: '6px',
+                  color: 'var(--text)',
                   cursor: 'pointer',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
                 }}
               >
-                <X size={18} />
-              </motion.button>
+                <X size={16} />
+              </button>
             </div>
 
             {/* Content */}
-            <div
-              style={{
-                flex: 1,
-                overflowY: 'auto',
-                padding: 'var(--space-lg)',
-              }}
-            >
-              {/* Theme Selection */}
-              <div style={{ marginBottom: 'var(--space-xl)' }}>
-                <label
-                  style={{
-                    display: 'block',
-                    marginBottom: 'var(--space-md)',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    color: 'var(--text-primary)',
-                  }}
-                >
+            <div style={{ flex: 1, overflowY: 'auto', padding: '1rem' }}>
+              {/* Theme */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label style={{ display: 'block', marginBottom: '0.75rem', fontSize: '0.875rem', fontWeight: 500 }}>
                   {t.comfort.theme}
                 </label>
-                <div
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: 'var(--space-sm)',
-                  }}
-                >
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
                   {themes.map((theme) => (
-                    <motion.button
+                    <button
                       key={theme.value}
                       onClick={() => setComfort({ theme: theme.value })}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
                       style={{
-                        padding: 'var(--space-md)',
-                        background: comfort.theme === theme.value ? 'var(--brand-primary)' : 'var(--bg-tertiary)',
-                        border: `1px solid ${comfort.theme === theme.value ? 'var(--brand-primary)' : 'var(--border-primary)'}`,
-                        borderRadius: 'var(--radius-lg)',
-                        color: comfort.theme === theme.value ? 'white' : 'var(--text-primary)',
+                        padding: '0.75rem 0.5rem',
+                        background: comfort.theme === theme.value ? 'var(--accent)' : 'var(--bg-subtle)',
+                        border: '1px solid var(--border)',
+                        borderRadius: '6px',
+                        color: comfort.theme === theme.value ? 'white' : 'var(--text)',
                         cursor: 'pointer',
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
-                        gap: 'var(--space-xs)',
+                        gap: '0.25rem',
                         fontSize: '0.75rem',
-                        fontWeight: 500,
-                        transition: 'all var(--transition-fast)',
                       }}
                     >
-                      <theme.icon size={18} />
+                      <theme.icon size={16} />
                       {theme.label}
-                    </motion.button>
+                    </button>
                   ))}
                 </div>
               </div>
 
-              {/* Typography Selection */}
-              <div style={{ marginBottom: 'var(--space-xl)' }}>
-                <label
-                  style={{
-                    display: 'block',
-                    marginBottom: 'var(--space-md)',
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    color: 'var(--text-primary)',
-                  }}
-                >
+              {/* Font */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label style={{ display: 'block', marginBottom: '0.75rem', fontSize: '0.875rem', fontWeight: 500 }}>
                   {t.comfort.typography}
                 </label>
-                <div
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(2, 1fr)',
-                    gap: 'var(--space-sm)',
-                  }}
-                >
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem' }}>
                   {fonts.map((font) => (
-                    <motion.button
+                    <button
                       key={font.value}
                       onClick={() => setComfort({ fontFamily: font.value })}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
                       style={{
-                        padding: 'var(--space-md)',
-                        background: comfort.fontFamily === font.value ? 'var(--brand-primary)' : 'var(--bg-tertiary)',
-                        border: `1px solid ${comfort.fontFamily === font.value ? 'var(--brand-primary)' : 'var(--border-primary)'}`,
-                        borderRadius: 'var(--radius-lg)',
-                        color: comfort.fontFamily === font.value ? 'white' : 'var(--text-primary)',
+                        padding: '0.75rem',
+                        background: comfort.fontFamily === font.value ? 'var(--accent)' : 'var(--bg-subtle)',
+                        border: '1px solid var(--border)',
+                        borderRadius: '6px',
+                        color: comfort.fontFamily === font.value ? 'white' : 'var(--text)',
                         cursor: 'pointer',
-                        fontSize: '0.875rem',
-                        fontWeight: 500,
+                        fontSize: '0.8125rem',
                         fontFamily: font.value === 'dyslexic' ? 'OpenDyslexic' :
-                                   font.value === 'serif' ? 'Playfair Display, serif' :
-                                   font.value === 'mono' ? 'JetBrains Mono, monospace' : 'inherit',
-                        transition: 'all var(--transition-fast)',
+                                   font.value === 'serif' ? 'Georgia, serif' :
+                                   font.value === 'mono' ? 'monospace' : 'inherit',
                       }}
                     >
                       {font.label}
-                    </motion.button>
+                    </button>
                   ))}
                 </div>
               </div>
 
-              {/* Font Size */}
-              <div style={{ marginBottom: 'var(--space-xl)' }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: 'var(--space-md)',
-                  }}
-                >
-                  <label
-                    style={{
-                      fontSize: '0.875rem',
-                      fontWeight: 600,
-                      color: 'var(--text-primary)',
-                    }}
-                  >
-                    {t.comfort.fontSize}
-                  </label>
-                  <span
-                    style={{
-                      fontSize: '0.75rem',
-                      color: 'var(--text-tertiary)',
-                      background: 'var(--bg-tertiary)',
-                      padding: 'var(--space-xs) var(--space-sm)',
-                      borderRadius: 'var(--radius-sm)',
-                    }}
-                  >
-                    {comfort.fontSize}px
-                  </span>
+              {/* Size */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                  <label style={{ fontSize: '0.875rem', fontWeight: 500 }}>{t.comfort.fontSize}</label>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{comfort.fontSize}px</span>
                 </div>
                 <input
                   type="range"
@@ -230,47 +155,15 @@ export default function ComfortPanel() {
                   max="24"
                   value={comfort.fontSize}
                   onChange={(e) => setComfort({ fontSize: Number(e.target.value) })}
-                  style={{
-                    width: '100%',
-                    height: '6px',
-                    borderRadius: 'var(--radius-full)',
-                    background: `linear-gradient(to right, var(--brand-primary) ${((comfort.fontSize - 12) / 12) * 100}%, var(--bg-tertiary) ${((comfort.fontSize - 12) / 12) * 100}%)`,
-                    appearance: 'none',
-                    cursor: 'pointer',
-                  }}
+                  style={{ width: '100%' }}
                 />
               </div>
 
               {/* Line Height */}
-              <div style={{ marginBottom: 'var(--space-xl)' }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: 'var(--space-md)',
-                  }}
-                >
-                  <label
-                    style={{
-                      fontSize: '0.875rem',
-                      fontWeight: 600,
-                      color: 'var(--text-primary)',
-                    }}
-                  >
-                    {t.comfort.lineHeight}
-                  </label>
-                  <span
-                    style={{
-                      fontSize: '0.75rem',
-                      color: 'var(--text-tertiary)',
-                      background: 'var(--bg-tertiary)',
-                      padding: 'var(--space-xs) var(--space-sm)',
-                      borderRadius: 'var(--radius-sm)',
-                    }}
-                  >
-                    {comfort.lineHeight.toFixed(1)}
-                  </span>
+              <div style={{ marginBottom: '1.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                  <label style={{ fontSize: '0.875rem', fontWeight: 500 }}>{t.comfort.lineHeight}</label>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{comfort.lineHeight.toFixed(1)}</span>
                 </div>
                 <input
                   type="range"
@@ -279,47 +172,15 @@ export default function ComfortPanel() {
                   step="0.1"
                   value={comfort.lineHeight}
                   onChange={(e) => setComfort({ lineHeight: Number(e.target.value) })}
-                  style={{
-                    width: '100%',
-                    height: '6px',
-                    borderRadius: 'var(--radius-full)',
-                    background: `linear-gradient(to right, var(--brand-primary) ${((comfort.lineHeight - 1) / 1.5) * 100}%, var(--bg-tertiary) ${((comfort.lineHeight - 1) / 1.5) * 100}%)`,
-                    appearance: 'none',
-                    cursor: 'pointer',
-                  }}
+                  style={{ width: '100%' }}
                 />
               </div>
 
               {/* Letter Spacing */}
-              <div style={{ marginBottom: 'var(--space-xl)' }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    marginBottom: 'var(--space-md)',
-                  }}
-                >
-                  <label
-                    style={{
-                      fontSize: '0.875rem',
-                      fontWeight: 600,
-                      color: 'var(--text-primary)',
-                    }}
-                  >
-                    {t.comfort.letterSpacing}
-                  </label>
-                  <span
-                    style={{
-                      fontSize: '0.75rem',
-                      color: 'var(--text-tertiary)',
-                      background: 'var(--bg-tertiary)',
-                      padding: 'var(--space-xs) var(--space-sm)',
-                      borderRadius: 'var(--radius-sm)',
-                    }}
-                  >
-                    {comfort.letterSpacing.toFixed(2)}em
-                  </span>
+              <div style={{ marginBottom: '1.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                  <label style={{ fontSize: '0.875rem', fontWeight: 500 }}>{t.comfort.letterSpacing}</label>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{comfort.letterSpacing.toFixed(2)}em</span>
                 </div>
                 <input
                   type="range"
@@ -328,61 +189,21 @@ export default function ComfortPanel() {
                   step="0.01"
                   value={comfort.letterSpacing}
                   onChange={(e) => setComfort({ letterSpacing: Number(e.target.value) })}
-                  style={{
-                    width: '100%',
-                    height: '6px',
-                    borderRadius: 'var(--radius-full)',
-                    background: `linear-gradient(to right, var(--brand-primary) ${(comfort.letterSpacing / 0.2) * 100}%, var(--bg-tertiary) ${(comfort.letterSpacing / 0.2) * 100}%)`,
-                    appearance: 'none',
-                    cursor: 'pointer',
-                  }}
+                  style={{ width: '100%' }}
                 />
-              </div>
-
-              {/* Preview */}
-              <div
-                style={{
-                  padding: 'var(--space-lg)',
-                  background: 'var(--bg-secondary)',
-                  borderRadius: 'var(--radius-lg)',
-                  border: '1px solid var(--border-primary)',
-                  marginBottom: 'var(--space-lg)',
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: '0.75rem',
-                    color: 'var(--text-tertiary)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.1em',
-                    marginBottom: 'var(--space-sm)',
-                  }}
-                >
-                  Preview
-                </p>
-                <p style={{ margin: 0 }}>
-                  The quick brown fox jumps over the lazy dog. 0123456789
-                </p>
               </div>
             </div>
 
             {/* Footer */}
-            <div
-              style={{
-                padding: 'var(--space-lg)',
-                borderTop: '1px solid var(--border-primary)',
-              }}
-            >
-              <motion.button
+            <div style={{ padding: '1rem', borderTop: '1px solid var(--border)' }}>
+              <button
                 onClick={resetComfort}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
                 className="btn btn-secondary"
                 style={{ width: '100%', justifyContent: 'center' }}
               >
-                <RotateCcw size={16} />
+                <RotateCcw size={14} />
                 {t.comfort.reset}
-              </motion.button>
+              </button>
             </div>
           </motion.div>
         </>
