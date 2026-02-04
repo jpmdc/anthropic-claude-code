@@ -6,7 +6,7 @@ export default function Products() {
   const { t } = useApp();
 
   const products = [
-    { icon: Brain, color: '#8B5CF6', ...t.products.quiz },
+    { icon: Brain, color: '#2563EB', ...t.products.quiz },
     { icon: Gamepad2, color: '#06B6D4', ...t.products.games },
     { icon: Music, color: '#EC4899', ...t.products.songs },
     { icon: Box, color: '#10B981', ...t.products.rendering },

@@ -29,7 +29,7 @@ export default function GamesPage() {
   ];
 
   const gameTypes = [
-    { name: 'Memory Match', color: '#8B5CF6' },
+    { name: 'Memory Match', color: '#2563EB' },
     { name: 'Word Puzzles', color: '#06B6D4' },
     { name: 'Math Adventures', color: '#10B981' },
     { name: 'Science Quests', color: '#F59E0B' },

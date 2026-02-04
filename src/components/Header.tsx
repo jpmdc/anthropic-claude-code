@@ -12,7 +12,7 @@ export default function Header() {
   const isHome = location.pathname === '/';
 
   const productLinks = [
-    { label: t.nav.quiz || 'Quiz', href: '/quiz', color: '#8B5CF6' },
+    { label: t.nav.quiz || 'Quiz', href: '/quiz', color: '#2563EB' },
     { label: t.nav.games || 'Games', href: '/games', color: '#06B6D4' },
     { label: t.nav.songs || 'Songs', href: '/songs', color: '#EC4899' },
     { label: t.nav.rendering || 'Rendering', href: '/rendering', color: '#10B981' },
