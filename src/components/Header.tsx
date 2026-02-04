@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X, Settings } from 'lucide-react';
 import { useApp } from '../context/AppContext';
@@ -6,11 +7,13 @@ import { useApp } from '../context/AppContext';
 export default function Header() {
   const { t, setIsPanelOpen, language, setLanguage, resolvedTheme } = useApp();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   const navItems = [
-    { label: t.nav.about, href: '#about' },
-    { label: t.nav.features, href: '#features' },
-    { label: t.nav.contact, href: '#contact' },
+    { label: t.nav.about, href: isHome ? '#about' : '/#about' },
+    { label: t.nav.features, href: isHome ? '#features' : '/#features' },
+    { label: t.nav.contact, href: isHome ? '#contact' : '/#contact' },
   ];
 
   return (
@@ -28,13 +31,13 @@ export default function Header() {
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         {/* Logo */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center' }}>
+        <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
           <img
             src={resolvedTheme === 'dark' ? '/images/neurostell_white.png' : '/images/neurostell.png'}
             alt="NeuroStell"
             style={{ height: '32px', width: 'auto' }}
           />
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
@@ -68,14 +71,17 @@ export default function Header() {
               border: '1px solid var(--border)',
               borderRadius: '6px',
               cursor: 'pointer',
+              transition: 'all 0.2s',
             }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--accent)')}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
           >
             {language === 'en' ? 'FR' : 'EN'}
           </button>
 
           <button
             onClick={() => setIsPanelOpen(true)}
-            aria-label="Settings"
+            aria-label="Display settings"
             style={{
               padding: '0.5rem',
               color: 'var(--text-secondary)',
@@ -84,14 +90,17 @@ export default function Header() {
               borderRadius: '6px',
               cursor: 'pointer',
               display: 'flex',
+              transition: 'all 0.2s',
             }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--accent)')}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--border)')}
           >
             <Settings size={16} />
           </button>
 
           {/* Mobile menu */}
           <button
-            className="mobile-menu-btn"
+            className="show-mobile"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             style={{
               display: 'none',
@@ -140,13 +149,6 @@ export default function Header() {
           ))}
         </motion.div>
       )}
-
-      <style>{`
-        @media (max-width: 768px) {
-          .hide-mobile { display: none !important; }
-          .mobile-menu-btn { display: flex !important; }
-        }
-      `}</style>
     </header>
   );
 }

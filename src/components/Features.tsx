@@ -1,21 +1,24 @@
 import { motion } from 'framer-motion';
+import { Brain, Sparkles, Users } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export default function Features() {
   const { t } = useApp();
 
+  const icons = [Brain, Sparkles, Users];
+
   return (
-    <section id="features" style={{ padding: 'var(--space-3xl) 0' }}>
+    <section id="features" style={{ padding: 'var(--space-3xl) 0', background: 'var(--bg-subtle)' }}>
       <div className="container">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ marginBottom: 'var(--space-2xl)' }}
+          style={{ marginBottom: 'var(--space-2xl)', maxWidth: '560px' }}
         >
           <h2 style={{ marginBottom: '1rem' }}>{t.features.title}</h2>
-          <p style={{ maxWidth: '560px', fontSize: '1.125rem' }}>
+          <p style={{ fontSize: '1.0625rem', lineHeight: 1.7 }}>
             {t.features.subtitle}
           </p>
         </motion.div>
@@ -29,38 +32,42 @@ export default function Features() {
           }}
           className="features-grid"
         >
-          {t.features.items.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              style={{
-                padding: 'var(--space-lg)',
-                background: 'var(--bg-subtle)',
-                border: '1px solid var(--border)',
-                borderRadius: '12px',
-              }}
-            >
-              <div
-                style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '10px',
-                  background: 'var(--accent)',
-                  opacity: 0.1,
-                  marginBottom: '1rem',
-                }}
-              />
-              <h3 style={{ marginBottom: '0.5rem', fontSize: '1.125rem' }}>
-                {item.title}
-              </h3>
-              <p style={{ fontSize: '0.9375rem', lineHeight: 1.6 }}>
-                {item.description}
-              </p>
-            </motion.div>
-          ))}
+          {t.features.items.map((item, i) => {
+            const Icon = icons[i];
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="card"
+                style={{ background: 'var(--bg)' }}
+              >
+                <div
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '12px',
+                    background: 'var(--gradient-primary)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '1.25rem',
+                    boxShadow: '0 4px 14px var(--accent-glow)',
+                  }}
+                >
+                  <Icon size={24} color="white" />
+                </div>
+                <h3 style={{ marginBottom: '0.75rem' }}>
+                  {item.title}
+                </h3>
+                <p style={{ fontSize: '0.9375rem', lineHeight: 1.7 }}>
+                  {item.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
