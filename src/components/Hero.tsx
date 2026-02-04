@@ -17,7 +17,7 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Subtle gradient background */}
+      {/* Vibrant gradient background */}
       <div
         style={{
           position: 'absolute',
@@ -26,7 +26,7 @@ export default function Hero() {
           transform: 'translateX(-50%)',
           width: '150%',
           height: '100%',
-          background: 'var(--gradient-subtle)',
+          background: 'var(--hero-gradient, var(--gradient-subtle))',
           pointerEvents: 'none',
         }}
       />

@@ -46,31 +46,35 @@ export default function About() {
               gap: '1.5rem',
             }}
           >
-            {t.about.stats.map((stat, i) => (
-              <div
-                key={i}
-                style={{
-                  padding: '1.25rem',
-                  background: 'var(--bg-subtle)',
-                  border: '1px solid var(--border)',
-                  borderRadius: '8px',
-                }}
-              >
+            {t.about.stats.map((stat, i) => {
+              const colors = ['var(--accent)', 'var(--accent-secondary)', 'var(--accent-tertiary, #F59E0B)'];
+              return (
                 <div
+                  key={i}
                   style={{
-                    fontSize: '1.75rem',
-                    fontWeight: 600,
-                    color: 'var(--text)',
-                    marginBottom: '0.25rem',
+                    padding: '1.25rem',
+                    background: 'var(--bg-subtle)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '8px',
+                    borderLeft: `3px solid ${colors[i]}`,
                   }}
                 >
-                  {stat.value}
+                  <div
+                    style={{
+                      fontSize: '1.75rem',
+                      fontWeight: 600,
+                      color: colors[i],
+                      marginBottom: '0.25rem',
+                    }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
+                    {stat.label}
+                  </div>
                 </div>
-                <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </motion.div>
         </div>
       </div>

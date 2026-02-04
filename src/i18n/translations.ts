@@ -84,7 +84,7 @@ export const translations = {
     },
     footer: {
       tagline: 'Building the neural infrastructure for inclusive education.',
-      copyright: '© 2024 NeuroStell. All rights reserved.',
+      copyright: '© 2026 NeuroStell. All rights reserved.',
       links: {
         company: ['About', 'Careers', 'Press'],
         legal: ['Privacy Policy', 'Terms of Service'],
@@ -236,7 +236,7 @@ Questions about these terms: contact@NeuroStell.com
     },
     footer: {
       tagline: 'Construire l\'infrastructure neurale pour l\'éducation inclusive.',
-      copyright: '© 2024 NeuroStell. Tous droits réservés.',
+      copyright: '© 2026 NeuroStell. Tous droits réservés.',
       links: {
         company: ['À propos', 'Carrières', 'Presse'],
         legal: ['Politique de Confidentialité', 'Conditions d\'Utilisation'],

@@ -32,7 +32,7 @@ interface AppContextType {
 }
 
 const defaultComfort: ComfortSettings = {
-  theme: 'dark',
+  theme: 'light',
   fontFamily: 'system',
   fontSize: 16,
   lineHeight: 1.6,
@@ -71,7 +71,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     return false;
   });
 
-  const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>('dark');
+  const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>('light');
 
   // Listen for system theme changes
   useEffect(() => {
