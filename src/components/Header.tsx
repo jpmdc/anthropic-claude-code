@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Settings, Brain } from 'lucide-react';
+import { Menu, X, Settings } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export default function Header() {
-  const { t, setIsPanelOpen, language, setLanguage } = useApp();
+  const { t, setIsPanelOpen, language, setLanguage, resolvedTheme } = useApp();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -53,29 +53,14 @@ export default function Header() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <div
+          <img
+            src={resolvedTheme === 'dark' ? '/images/neurostell_white.png' : '/images/neurostell.png'}
+            alt="NeuroStell"
             style={{
-              width: '40px',
               height: '40px',
-              borderRadius: 'var(--radius-lg)',
-              background: 'var(--brand-gradient)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: 'var(--shadow-glow)',
+              width: 'auto',
             }}
-          >
-            <Brain size={24} color="white" />
-          </div>
-          <span
-            style={{
-              fontSize: '1.25rem',
-              fontWeight: 700,
-              color: 'var(--text-primary)',
-            }}
-          >
-            Neuro<span className="gradient-text">Stell</span>
-          </span>
+          />
         </motion.a>
 
         {/* Desktop Navigation */}
